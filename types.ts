@@ -5,4 +5,5 @@ export type Record = {
   comment?: string
   year: number
   img: string
+  type: 'movie' | 'tv' | 'anime' | 'book'
 }

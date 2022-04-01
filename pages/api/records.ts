@@ -31,6 +31,7 @@ export default async function handler(
         comment: json.comment,
         year: json.year,
         img: json.img,
+        type: json.type,
       }
     })
     res.status(200).json(records)
