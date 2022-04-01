@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className='h-screen mx-[3.5rem] min-w-[15rem] max-w-full sm:mx-auto sm:w-[30rem] font-sans'>
+    <div className='mx-[3.5rem] min-w-[15rem] max-w-full sm:mx-auto sm:w-[30rem] font-sans'>
       <Head>
         <title>我看过的</title>
         <meta name="viewport" content="width=device-width" />
@@ -41,6 +41,12 @@ const Home: NextPage = () => {
       <div>
         { renderCards() }
       </div>
+
+      <footer>
+        <div className='text-xs sm:text-base text-slate-300'>
+          <a className='hover:underline hover:text-slate-500' href='https://zehao.me'>Zehao</a> @ { new Date().getFullYear() }
+        </div>
+      </footer>
     </div>
   )
 }
