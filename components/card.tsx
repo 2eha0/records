@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Record } from './types'
+import { Record } from '../types'
 
 type Props = Record
 
@@ -47,6 +47,7 @@ export const Card: React.FC<Props> = (props) => {
             layout='responsive'
             width={86}
             height={128}
+            alt={ props.title }
           />
         </div>
       </div>

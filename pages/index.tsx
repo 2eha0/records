@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { Card } from './card'
-import { Record } from './types'
+import { Card } from '../components/card'
+import { Record } from '../types'
 
 const Home: NextPage = () => {
 

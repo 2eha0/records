@@ -1,5 +1,5 @@
 import AV from 'leancloud-storage'
-import { Record } from '../types'
+import { Record } from '../../types'
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -8,16 +8,17 @@ export default async function handler(
   res: NextApiResponse<Record[]>
 ) {
   try {
-    if (!process.env.LEANCLOUD_APP_ID || !process.env.LEANCLOUD_APP_KEY || !process.env.LEANCLOUD_APP_MASTER_KEY) {
+    const {
+      LEANCLOUD_APP_ID: appId,
+      LEANCLOUD_APP_KEY: appKey,
+      LEANCLOUD_SERVER_URL: serverURL,
+    } = process.env
+    if (!appId || !appKey || !serverURL) {
       res.status(500).json({ error: 'Missing Leancloud config' } as any)
       return
     }
 
-    AV.init({
-      appId: process.env.LEANCLOUD_APP_ID,
-      appKey: process.env.LEANCLOUD_APP_KEY,
-      serverURL: process.env.LEANCLOUD_SERVER_URL,
-    })
+    AV.init({ appId, appKey, serverURL })
 
     const query = new AV.Query('Record')
     const data = await query.find()
