@@ -21,8 +21,9 @@ export default async function handler(
     AV.init({ appId, appKey, serverURL })
 
     const query = new AV.Query('Record')
+
     const data = await query.find()
-    const records: Record[] = data.map(x => {
+    const records: Record[] = data.reverse().map(x => {
       const json = x.toJSON()
       return {
         date: json.createdAt,
